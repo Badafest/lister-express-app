@@ -16,10 +16,6 @@ const clientURLS = [process.env.CLIENT_URL, process.env.CLIENT_LOCAL_URL];
 app.use(
   cors({
     origin: (origin, callback) => {
-      console.log(origin);
-      if (!origin) {
-        return callback(null, true);
-      }
       clientURLS.indexOf(origin) !== -1
         ? callback(null, true)
         : callback(new Error("Not allowed by CORS"));
