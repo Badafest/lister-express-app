@@ -1,6 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 const fs = require("fs");
 const cors = require("cors");
@@ -17,6 +16,7 @@ const clientURLS = [process.env.CLIENT_URL, process.env.CLIENT_LOCAL_URL];
 app.use(
   cors({
     origin: (origin, callback) => {
+      console.log(origin);
       if (!origin) {
         return callback(null, true);
       }
